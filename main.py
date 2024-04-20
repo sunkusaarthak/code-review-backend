@@ -1,12 +1,19 @@
 import os
-from dotenv import load_dotenv
-from BledModel import BledModel 
 import ModelSettings as MS
+from dotenv import load_dotenv
+from BledModel import BledModel
+from fastapi import FastAPI
 
 load_dotenv()
 
 API_KEY = os.getenv('API_KEY')
 CONFIGURE_INPUT = MS.ModelSettings.CONFIGURE_INPUT.value
+app = FastAPI()
+
+@app.get('/')
+async def root():
+    return {'test':'Hello', 'data':0}
+
 current_input = r"""
     #include<stdio.h>
     #include<conio.h>
