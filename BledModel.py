@@ -16,6 +16,5 @@ class BledModel:
                               safety_settings=self.safety_settings)
         convo = bled_model.start_chat(history=[])
         convo.send_message(final_input_to_bled_model)
-        model_output = OutputModel()
-        model_output.output = convo.last.text
+        model_output = OutputModel(output=convo.last.text).model_dump()
         return model_output
