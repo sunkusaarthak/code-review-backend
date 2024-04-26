@@ -9,6 +9,7 @@ from ptree.utils import return_string_from_tokens
 from ptree.parser.grammar import Grammar
 from ptree.lexer.lexer import Lexer
 from fastapi.middleware.cors import CORSMiddleware
+
 load_dotenv()
 
 app = FastAPI()
