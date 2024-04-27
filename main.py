@@ -1,7 +1,7 @@
 import os
 import ModelSettings as MS
 from dotenv import load_dotenv
-from BledModel import BledModel
+from BertModel import BertModel
 from fastapi import FastAPI
 from schemas import CodeModel, OutputModel
 from ptree.utils import load_config
@@ -34,10 +34,10 @@ async def root():
 @app.post('/getcodereview')
 async def get_code_review(code: CodeModel) -> OutputModel:
     print(code)
-    bled_obj = BledModel(MS.ModelSettings.model_config, MS.ModelSettings.safety_settings, MS.ModelSettings.model_name)
-    final_input_to_bled_model = CONFIGURE_INPUT + code.code
+    bert_obj = BertModel(MS.ModelSettings.model_config, MS.ModelSettings.safety_settings, MS.ModelSettings.model_name)
+    final_input_to_bert_model = CONFIGURE_INPUT + code.code
 
-    return bled_obj.parse_input(API_KEY, final_input_to_bled_model)
+    return bert_obj.parse_input(API_KEY, final_input_to_bert_model)
 
 @app.post('/getcodetokenized')
 async def get_code_tokenized(code: CodeModel) -> OutputModel:
