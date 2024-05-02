@@ -1,3 +1,3 @@
 ## Code Review Backend Code 
 
-Build using Fast API
+Build using Fast API, uvicorn and other modules
