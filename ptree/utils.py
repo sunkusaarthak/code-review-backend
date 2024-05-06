@@ -131,7 +131,8 @@ def render(obj,
         return dot.source
     else:
         raise TypeError(f'cannot render object of type {type(obj)}')
-    
+
+
 def return_string_from_tokens(tokens) -> str:
     res = ""
     for token in tokens:
